@@ -1,0 +1,132 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/children">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+
+      {{ child?.name }}
+
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+
+    <ion-card-header>
+
+      <h2>
+        Dados da Criança
+      </h2>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>
+        Nome:
+        {{ child?.name }}
+      </p>
+
+      <p>
+        Responsável:
+        {{ child?.guardianName }}
+      </p>
+
+      <p>
+        Nascimento:
+        {{ child?.birthDate }}
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <h2>Vacinas Aplicadas</h2>
+
+  <ion-card
+    *ngFor="let record of records">
+
+    <ion-card-content>
+
+      <strong>
+        {{ getVaccineName(record.vaccineId) }}
+      </strong>
+
+      <br>
+
+      Dose:
+      {{ record.doseNumber }}
+
+      <br>
+
+      Aplicada em:
+      {{ record.appliedDate }}
+
+      <br>
+
+      <ion-chip color="success">
+
+        Aplicada
+
+      </ion-chip>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <h2>Calendário Vacinal</h2>
+
+<ion-card
+  *ngFor="let vaccine of vaccines">
+
+  <ion-card-content>
+
+    <strong>
+      {{ vaccine.shortName }}
+    </strong>
+
+    <br>
+
+    {{ vaccine.description }}
+
+    <br><br>
+
+    <ion-chip
+      color="success"
+      *ngIf="getStatus(vaccine) === 'applied'">
+
+      Aplicada
+
+    </ion-chip>
+
+<ion-chip
+ color="warning"
+ *ngIf="getStatus(vaccine) === 'pending'">
+
+ Pendente
+
+</ion-chip>
+
+<ion-chip
+ color="danger"
+ *ngIf="getStatus(vaccine) === 'overdue'">
+
+ Atrasada
+
+</ion-chip>
+
+  </ion-card-content>
+
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>VacinaKids</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Olá, responsável </h2>
+
+<ion-card>
+
+  <ion-card-header>
+
+    <ion-card-title>
+      Resumo Geral
+    </ion-card-title>
+
+  </ion-card-header>
+
+  <ion-card-content>
+
+    <h1>
+      {{ totalChildren }}
+    </h1>
+
+    Crianças cadastradas
+
+  </ion-card-content>
+
+</ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Campanhas Ativas</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ campaigns.length }} campanha(s)
+    </ion-card-content>
+  </ion-card>
+
+<ion-button expand="block" routerLink="/children" class="btn-primary">
+  Ver Crianças
+</ion-button>
+
+  <ion-button
+    expand="block"
+    fill="outline"
+    (click)="goCampaigns()">
+
+    Ver Campanhas
+
+  </ion-button>
+
+  <ion-button
+ expand="block"
+ routerLink="/vaccines">
+
+ Vacinas
+
+</ion-button>
+
+<ion-button
+ expand="block"
+ routerLink="/campaigns">
+
+ Campanhas
+
+</ion-button>
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Vacinas
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card
+    *ngFor="let vaccine of vaccines">
+
+    <ion-card-header>
+
+      <h2>
+        {{ vaccine.name }}
+      </h2>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>
+        {{ vaccine.description }}
+      </p>
+
+      <p>
+        Doses:
+        {{ vaccine.totalDoses }}
+      </p>
+
+      <p>
+        Faixas:
+        {{ vaccine.ageMonths.join(', ') }}
+        meses
+      </p>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
